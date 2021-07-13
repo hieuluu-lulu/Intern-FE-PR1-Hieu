@@ -1,0 +1,49 @@
+header.header 
+    .container 
+        .row 
+            nav.header__nav
+                a.header__nav-brand(href="#home")
+                    img(src="./assets/images/logo.png" alt= "logo")
+                ul.header__nav-list
+                    each item in listMenu 
+                        if ( item.name === "Sản phẩm")
+                          li.list__item
+                            a.list__item-link.list__item--hasChild(href= `#${item.href}`)= item.name 
+                            i.fas.fa-chevron-down
+                            .mega-menu
+                                .mega-menu__col 
+                                    h1.mega-menu__col-heading Dưỡng da
+                                    each value in skin 
+                                        ul.mega-menu__col-wrap
+                                            li.wrap__item
+                                                a(href="#")= value
+                                .mega-menu__col
+                                    h1.mega-menu__col-heading Nước hoa
+                                    each dress in dresses
+                                        ul.mega-menu__col-wrap
+                                            li.wrap__item
+                                                a(href="#")= dress
+                                .mega-menu__col
+                                    h1.mega-menu__col-heading Trang sức
+                                    each dress in dresses
+                                        ul.mega-menu__col-wrap
+                                            li.wrap__item
+                                                a(href="#")= dress
+                        else    
+                            li.list__item
+                                a.list__item-link(href= `#${item.href}`)= item.name 
+                                    
+                .header__nav-cart 
+                    i.fas.fa-shopping-cart
+                    .cart__wrap 
+                        .cart__wrap-item 
+                            .item__image 
+                                img(src="", alt="cart-img")
+                            .item__details
+                                span Áo sơ mi nam 
+                                span 120.000 
+                                span đ
+                                
+                .header__nav-search 
+                    i.fas.fa-search
+           

@@ -1,0 +1,68 @@
+/** @format */
+
+@import './variables';
+@import './mixins';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@font-face {
+	font-family: 'utm-androgyne';
+	src: url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
+			format('woff'),
+		url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
+			format('opentype'),
+		url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
+			format('truetype');
+}
+@font-face {
+	font-family: 'UTM ViceroyJF';
+	src: url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.eot');
+	src: url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.eot?#iefix')
+			format('embedded-opentype'),
+		url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.woff2')
+			format('woff2'),
+		url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.woff')
+			format('woff'),
+		url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.ttf')
+			format('truetype'),
+		url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.svg#UTM ViceroyJF')
+			format('svg');
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+body {
+	font-size: 1.2rem;
+	font-family: OpenSans, sans-serif;
+	line-height: 1.7;
+	background: $body-color;
+}
+
+a {
+	text-decoration: none;
+}
+ul {
+	margin: 0;
+}
+li {
+	list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+ul {
+	padding: 0;
+}
