@@ -102,6 +102,9 @@
 						&-link {
 							color: $text-light-color;
 							font-size: 1.4rem;
+							&:hover {
+								color: $primary-color;
+							}
 						}
 					}
 				}

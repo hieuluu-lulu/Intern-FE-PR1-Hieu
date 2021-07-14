@@ -189,13 +189,6 @@ mixin productList(img,index,title,rating,description,price)
                 p.detail__desc= description
                 p.detail__price= `${price}đ`
             +productBtn
-
-
-
-
-
-                        li(class!=attributes.class).breadcrumb-item.active(aria-current='page')= item.name
-
 mixin formInput(type,text,id)
     .mb-3
         label(for="email" class="form__label")= `${text}*`
@@ -397,8 +390,8 @@ mixin blogCard(img,title,content,author,comment,index)
 
 mixin formBlogDetail(type,text,id)
     .row.my-5
-        .col-2
+        .col-lg-2.col-md-12.col-sm-12
             label(for= id).col-form-label.form__label.py-4= `${text}`
                 span *
-        .col-10
+        .col-lg-10.col-md-12.col-sm-12
             input(type=`${type}` id=`${id}`).form__input.py-4

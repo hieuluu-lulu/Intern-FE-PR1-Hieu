@@ -20,7 +20,15 @@
 		&-body {
 			@include font('Open Sans', 1.5);
 			vertical-align: middle !important;
-
+			.body__img {
+				@include box(145px, 100%);
+				margin: auto;
+				img {
+					width: 100%;
+					-o-object-fit: contain;
+					object-fit: contain;
+				}
+			}
 			.body__price {
 				@include font('Lobster', 1.5);
 			}
@@ -29,9 +37,11 @@
 			}
 			.body__quantity {
 				@include flex-box(center, center);
-				@include box(4rem);
+				@include box(5rem);
 				border: 1px solid $border-color;
 				margin: 0 auto;
+				text-align: center;
+				outline: none;
 			}
 
 			.body__link {
@@ -40,10 +50,25 @@
 			}
 		}
 	}
+	&__total {
+		@include flex-box(center, flex-end);
+		margin-bottom: 3rem;
+		font-size: 2rem;
+
+		&-price {
+			margin-left: 0.5rem;
+			font-family: 'Lobster', sans-serif;
+			font-size: 2.5rem;
+		}
+	}
 	&__btnGroup {
 		@include flex-box(center, flex-end);
+		a:hover {
+			background: $primary-color;
+		}
+
 		button {
-			margin-left: 1rem;
+			margin: 0 1rem;
 
 			&:hover {
 				background: $primary-color;

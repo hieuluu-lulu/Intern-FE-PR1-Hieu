@@ -112,3 +112,15 @@ block content
                                 h4.about__block-title Tag sản phẩm
                                 img.about__block-line(src="../assets/images/Home-line.png" alt= "home-span")
                                 +tag(["Đồng hồ","Túi","Phụ kiện","Đồng hồ","Túi","Giày","Sandal","Áo sơ mi","Nước hoa","Giày","Sandal","Trẻ em","Thời trang nữ","Trẻ em","Thời trang nữ"])
+    input(type="checkbox" id="modal")                         
+    .popup
+        .popup__dialog 
+            .popup__dialog-content 
+                h1.content__header Gửi email 
+                p.content__body Hãy gửi email cua bạn liên hệ với chúng tôi để đc tư vấn tôt nhất Sự hai lòng cua bạn la thành công của chúng tôi
+                form 
+                    input.content__input
+                    button(type="submit").content__btn Gửi email
+            label(for="modal").popup__close 
+                span 
+                span

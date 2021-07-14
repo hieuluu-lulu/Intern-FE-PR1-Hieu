@@ -1,0 +1,17 @@
+extend ../layouts/layout.pug
+block header
+block content 
+    .main-404.mx-auto
+        .container
+            .row 
+                .col-md-7.m-auto
+                    img.main-404__img(src="../assets/images/Page-404.jpg" alt="404")
+            p.main-404__text Đây không phải là trang web bạn đang tìm kiếm
+            .col-md-4.mx-auto
+                .main-404__input  
+                    input(type="text")
+                    i.fas.fa-search 
+                .main-404__back
+                    a.main-404__back-link(href="./contact.html") Liên hệ
+                    a.main-404__back-link(href="/") Trang chủ
+block footer

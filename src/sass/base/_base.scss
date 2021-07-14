@@ -12,6 +12,18 @@
 }
 .btn:hover {
 	color: $body-color;
+	background: $primary-color;
+}
+.btn-yes {
+	background: $primary-color;
+	opacity: 0.8;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+.btn-no:hover {
+	background: $btn-color;
 }
 
 .btn-bought {
@@ -109,4 +121,7 @@
 		background-color: $text-color !important;
 		margin: 0 0.5rem;
 	}
+}
+.toast {
+	font-size: 2rem;
 }
