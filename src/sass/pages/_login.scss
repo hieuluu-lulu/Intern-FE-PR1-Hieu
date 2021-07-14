@@ -1,0 +1,62 @@
+/** @format */
+@import '../base/mixins';
+@import '../base/variables';
+@import '../base/global';
+
+.login {
+	margin-top: 3rem;
+	padding-bottom: 6rem;
+	&__heading {
+		@include flex-box(center, space-between);
+		margin-bottom: 2.8rem;
+		&-title {
+			@include font('Open Sans', 2.8, 24px, null, 400);
+			text-transform: uppercase;
+		}
+		&-btn {
+			border-radius: unset;
+			font-size: 1.2rem;
+			padding: 1rem 1.8rem;
+		}
+	}
+	&__body {
+		background-color: $background-colorF2;
+		padding: 4rem 5rem;
+
+		&-title {
+			@include font('Open Sans', 1.8, 24px, null, null);
+			text-transform: uppercase;
+			padding-bottom: 2rem;
+		}
+		&-text {
+			@include font('Open Sans', 1.2, null, null, 600);
+			margin-bottom: 5rem;
+		}
+		&-form {
+			width: 100%;
+			@include font('Open Sans', 1.2, null, null, 600);
+
+			.form__label {
+				width: 100%;
+				margin-bottom: 5px;
+			}
+
+			.form__input {
+				width: 100%;
+				padding: 0.6rem 1.4rem;
+				border: 1px solid $border-color;
+				outline: none;
+			}
+
+			.form__forgot {
+				color: $text-color;
+				text-transform: capitalize;
+				margin-right: 2.5rem;
+			}
+			.form__btn {
+				border-radius: unset;
+				padding: 1rem 1.8rem;
+			}
+		}
+	}
+}

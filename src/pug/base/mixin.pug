@@ -1,96 +1,101 @@
-mixin card(title, desc) 
-    .col-lg-4.col-md-6.col-sm-6.card-parent
-        .card(class="card-custom")
-            .card-body 
-                .card-icon(class="card-custom__icon")
-                    img(src="../assets/images/featured-item-01.png" alt="card-img") 
-                h5.card-title(class="card-custom__title")= title
-                p.card-text(class="card-custom__text")= desc
+mixin breadcrumbs(arrBr)
+    nav(aria-label='breadcrumb')
+        .container
+            ol.breadcrumb.bg-white.pl-0.py-30px.mb-0
+                each item,index in arrBr
+                    if index !== arrBr.length - 1
+                        li.breadcrumb-item
+                            a(href=item.link)= item.name
+                    else
+                        li.breadcrumb-item.active(aria-current='page')= item.name
 
-mixin features(img, alt,title,text )
-    .row(class!=attributes.class).align-items-center
-        .col-lg-5.col-md-12.col-sm-12.features
-            img(src= img alt= alt class= "features__img")(data_img!=attributes.data_img)
-        .col-lg-1 
-        .col-lg-6(class="col-md-12 col-sm-12 ")
-            .features__info
-                .features__info-heading
-                    h2= title
-                .features__info-text 
-                    p= text 
+mixin formInput(type,text,id)
+    .mb-3
+        label(for="email" class="form__label")= `${text}*`
+        input(type= `${type}` id=`${id}` class="form__input")
 
-mixin headings(title, text)
-    .row 
-        .heading 
-            .col-lg-12.heading__title 
-                h2= title
-            .col-lg-6.heading__desc
-                p= text
+mixin homeOptions(icon,text)
+    .col-md-4.col-sm-12
+        .options__wrap(class!=attributes.class)
+            .options__wrap-icon 
+                i(class= `${icon}`)
+            span.options__wrap-text= text
 
-mixin box(title,desc)  
-        .col-lg-2.col-md-3.col-sm-6.col-custom
-            a.box(href="#") 
-                i.box__img
-                    img(src="./assets/images/work-process-item-01.png" alt="item-01")
-                span.box__title= title
-                span.box__text= desc
-mixin team-content(text,author)
-        .col-lg-4.col-md-6.col-sm-12 
-            .team 
-                .team__content 
-                    i.team__content-icon 
-                        img(src="./assets/images/team-icon.png", alt="team-icon")
-                    p.team__content-text= text 
-                    .team__content-user 
-                        img(src="./assets/images/avatar.jpg" class="user__avatar")
-                        .user__info 
-                            h3.user__info-name= author
-                            case author 
-                                when "Catherine Soft"
-                                    p.user__info-role Managing Director
-                                when "Kelvin Wood"
-                                    p.user__info-role Digital Marketer
-                                when "David Martin"
-                                    p.user__info-role Website Managers
-                                default 
-                                    p.user__info-role Hieu Luu
-                                    
-mixin pricing(title,price,number1,number2)
-    .col-lg-4.col-md-6.col-sm-12(class!=attributes.class) 
-        .pricing
-            h3.pricing__header= title
-            .pricing__wrap(active!=attributes.active) 
-                span.pricing__wrap-currency= "$" 
-                span.pricing__wrap-number= price
-                span.pricing__wrap-month monthly
-            ul.pricing__list
-                each item in listPricing 
-                    if (item=== "GB space")
-                        li.pricing__list-item.active= `${number1} ${item}`
-                    else if( item==="GB transfer")
-                        li.pricing__list-item.active= `${number2} ${item}`
-                    else if (title=== "Advanced")
-                        li.pricing__list-item.active= item
-                    else if (item==="Pro Design Panel")
-                        li.pricing__list-item.active= item
-                    else if(title==="Premium" && item==="15-minute support")
-                        li.pricing__list-item.active= item
-                    else 
-                        li.pricing__list-item= item
-            a(href="#" class="btn") Purchase now 
+mixin homeImage(index)
+    .row.mt-3
+        if index === 1
+            .col-md-6.col-sm-12
+                .grid__container
+                    each img in homeGrid1
+                        .grid__container-item.grid__container-item--grid1
+                            img(src=`${img}` alt= "grid-img")
+            .col-md-6.col-sm-12 
+                .grid__col
+                    img(src="../assets/images/Home4.jpg" alt="Home4")
+                    .grid__col--hasIcon
+                        i.fas.fa-caret-right
+        if index === 2
+            .col-md-6.col-sm-12 
+                .grid__col
+                    img(src="../assets/images/Home6.jpg" alt="Home6")
+            .col-md-6.col-sm-12
+                .grid__container
+                    each img in homeGrid2
+                        .grid__container-item.grid__container-item--grid2
+                            img(src= `${img}` alt= "grid-img")
 
-mixin counter(number,text) 
-    .col-lg-3.col-md-6.col-sm-12
-        .counter__content-item(class!=attributes.class)
-            span.item__number= number
-            span.item__text= text
+mixin homeProduct(img, cate, title, price, oldprice, disable)
+    if disable 
+        .col-lg-2.col-md-6.col-sm-12
+            .card.product__card.product__card--disable
+                img.card-img-top.product__card-img(src=`${img}` alt= title)
+                .card-body.product__card-body
+                    p.card-text.body__cate= cate
+                    h5.card-title.body__title= title
+                    .body__line
+                    if oldprice!==null
+                        span.body__price= price 
+                            sup đ 
+                        span.body__oldprice= oldprice
+                            sup đ 
+                    else
+                        span.body__price= price 
+                            sup đ                   
+    else   
+        .col-lg-2.col-md-6.col-sm-12  
+            .card.product__card
+                img.card-img-top.product__card-img(src=`${img}` alt= title)
+                .card-body.product__card-body
+                    p.card-text.body__cate= cate
+                    h5.card-title.body__title= title
+                    .body__line
+                    if oldprice!==null
+                        span.body__price= price
+                            sup đ 
+                        span.body__oldprice= oldprice 
+                    else
+                        span.body__price= price
+                            sup đ 
+                    .product__card-footer
+                        button.btn-bought Mua hàng
+                        button.btn-wish
+                            i.fas.fa-heart
+                        button.btn-reload
+                            i.fas.fa-sync-alt 
 
-mixin blogCard(img,title,text) 
-    .col-lg-4.col-md-6.col-sm-12(class!=attributes.class)
-        .blog__post 
-            .blog__post-img
-                img(src=`./assets/images/${img}`  alt= img )
-            .blog__post-content
-                h3.content__title= title
-                p.content__desc= text
-            a.btn Read more
+mixin tag(tags)  
+    .tags 
+        each tag in tags 
+            .tag= tag
+
+mixin quote(src)
+    .quote__wrap 
+        .quote__wrap-avatar
+            img(src=`${src}` alt="quote-avater") 
+        .quote__wrap-text 
+            p.text__main
+                q.text__main-quote
+                    span= homeQuote
+                .text__main-footer
+                    span.footer__author TUTILE
+                    span.footer__position _Giám đốc phát triển sản phẩm

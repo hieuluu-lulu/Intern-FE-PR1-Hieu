@@ -1,1 +1,114 @@
 extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content 
+    section.home
+        .home__content 
+            .home__content-left
+                h1.left__title Green 
+                    span Vera
+                p.left__desc Sản phẩm tinh dầu dưỡng da mới nhất của Mandala  
+                h3.left__price giá chỉ 750.000
+                    sup đ
+                a.left__link(href="#") Mua hàng
+    .options
+        .container 
+            .row
+                each item,index in homeOption
+                    if index === homeOption.length - 1 
+                        +homeOptions(item.icon, item.text)(class= "disable")
+                    else
+                        +homeOptions(item.icon, item.text)
+    section.grid
+        .container
+            +homeImage(1)
+            +homeImage(2)
+    section.quote 
+        .container 
+            .row
+                .col-lg-8.col-md-12.col-sm-12 
+                    #carousel.carousel.slide(data-bs-ride='carousel')
+                        .carousel-indicators
+                            button.active(type='button' data-bs-target='#carousel' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+                            button(type='button' data-bs-target='#carousel' data-bs-slide-to='1' aria-label='Slide 2')
+                            button(type='button' data-bs-target='#carousel' data-bs-slide-to='2' aria-label='Slide 3')
+                        .carousel-inner 
+                            .carousel-item.active(data-bs-interval="5000")
+                                +quote("../assets/images/Home15.png")
+                            .carousel-item(data-bs-interval="5000")
+                                +quote("../assets/images/Home_quote.png")
+                            .carousel-item(data-bs-interval="5000")
+                                +quote("../assets/images/Home15.png")
+    section.bestSell 
+        .container-fluid  
+            .col-lg-6.col-md-10.mx-auto 
+                .bestSell__heading 
+                    .bestSell__heading-title 
+                        span Sản phẩm mới 
+                        h1 Sản phẩm bán chạy 
+                        span Sản phẩm đặc biệt
+                    img(src="../assets/images/Home-span.png")
+                    ul.bestSell__heading-list 
+                        each item in homeProductCate
+                            li.list__cate 
+                                a.list__cate-link(href="#")= item
+            .row.product.d-lg-flex.d-none 
+                .product__icon--left.d-lg-block.d-none
+                    i.fas.fa-arrow-left
+                .product__icon--right
+                    i.fas.fa-arrow-right.d-lg-block.d-none
+                each item in homeProduct
+                    +homeProduct(item.img,item.category,item.name,item.price,item.oldprice,item.disable)
+            .row.d-md-flex.d-lg-none.d-none
+                each item in homeProductTablet
+                    +homeProduct(item.img,item.category,item.name,item.price,item.oldprice)
+            .row.d-sm-flex.d-lg-none.d-md-none
+                +homeProduct(homeProductMobile.img,homeProductMobile.category,homeProductMobile.name,homeProductMobile.price,homeProductMobile.oldprice)
+
+    section.social
+        .container 
+            .row.social-row
+                each item in homeSocials 
+                    .col-lg-2.col-md-3.col-sm-6
+                        .social__wrap
+                            span.social__wrap-icon
+                                i(class= `${item.icon}`)
+                            span.social__wrap-text= item.name
+    section.about
+        .container 
+            .row 
+                .col-lg-4.col-md-6.col-sm-12 
+                    .about__block
+                        h4.about__block-title Về chúng tôi
+                        img.about__block-line(src="../assets/images/Home-line.png" alt= "home-span")
+                        .about__block-details 
+                            img.details__logo.details__logo--unset(src="../assets/images/logo.png" alt= "logo")
+                            h5.details__title= homeAboutus.title 
+                            p.details__text= homeAboutus.text
+                            span Xem thêm
+                .col-lg-4.col-md-6.col-sm-12
+                    .about__block
+                        h4.about__block-title Blog
+                        img.about__block-line(src="../assets/images/Home-line.png" alt= "home-span")
+                        .about__block-details 
+                            img.details__logo(src="../assets/images/Home_blog.png" alt= "logo")
+                            h5.details__title= homeBlog.title 
+                            p.details__text= homeBlog.text
+                            span.details__author= homeBlog.author
+                            .details__footer 
+                                span Đọc thêm
+                                span 23 Bình luận
+                .col-lg-4.col-md-12.col-sm-12 
+                    .row
+                        .col-lg-12.col-md-6
+                            .about__block.d-flex.justify-content-center.flex-column.align-items-center.mb-5
+                                h4.about__block-title Gửi email cho chúng tôi 
+                                img.about__block-line(src="../assets/images/Home-line.png" alt= "home-span")
+                                form(action="#" method="post").about__block-contact
+                                    input(type="text" placeholder="Email của bạn")
+                                    p Gửi để nhận những ưu đãi mới nhất
+                                    button.btn(type="submit") Gửi
+                        .col-lg-12.col-md-6
+                            .about__block.d-flex.flex-column.align-items-center.justify-content-center
+                                h4.about__block-title Tag sản phẩm
+                                img.about__block-line(src="../assets/images/Home-line.png" alt= "home-span")
+                                +tag(["Đồng hồ","Túi","Phụ kiện","Đồng hồ","Túi","Giày","Sandal","Áo sơ mi","Nước hoa","Giày","Sandal","Trẻ em","Thời trang nữ","Trẻ em","Thời trang nữ"])

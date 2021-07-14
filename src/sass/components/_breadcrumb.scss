@@ -1,0 +1,15 @@
+/** @format */
+
+.breadcrumbs {
+	padding: 2.4rem 0;
+	border-bottom: 1px dashed $border-color;
+	font-size: 1.2rem;
+
+	.active {
+		color: $primary-color;
+	}
+
+	a {
+		color: $text-light-color;
+	}
+}

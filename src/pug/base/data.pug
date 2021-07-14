@@ -1,7 +1,7 @@
 -
     const listMenu = [
         {
-            name: "Trang chủ",href: "home"
+            name: "Trang chủ",href: "/"
         }, 
         {
             name: "Giới thiệu", href: "introduce", 
@@ -23,3 +23,165 @@
     const skin = ["Áo khoác","Bộ áo liền quần","Dresses","Quần / váy","Quần short","Quần jean","Đồ đan", "Áo nỉ"]
 
     const dresses = ["Áo cánh / Áo sơ mi","Túi xách & Balô", "Khăn quàng cổ và Foulards","Dệt kim Hats & Gloves","Vớ & Socks","Jewerly","Bị bảo vệ","Giày"]
+
+    const InputSignUp = [
+        {
+            type: "text",
+            text : "Tên trước", 
+            id: "first-name"
+        }, 
+        {
+            type: "text",
+            text : "Tên sau", 
+            id: "last-name"
+        },
+        {
+            type: "email",
+            text : "Email", 
+            id: "email"
+        },
+        {
+            type: "password",
+            text : "Password", 
+            id: "pass"
+        }
+    ]
+
+    const homeOption = [
+        {
+            icon: "fas fa-plane-departure",
+            text:"Miễn phí vận chuyển"
+        },
+        {
+            icon: "fas fa-gift",
+            text: "Nhận ngay quà tặng trị giá 350.000đ"
+        },
+        {
+            icon: "fas fa-star",
+            text: "Giảm 30% cho đơn hàng trên 5.000.000đ"
+        }
+
+    ]
+
+    const homeGrid1 = ["../assets/images/01_Home.jpg","../assets/images/Home_2.jpg","../assets/images/Home_1.jpg","../assets/images/Home15.jpg"]
+
+    const homeGrid2 = ["../assets/images/Home_3.jpg","../assets/images/Home7.jpg","../assets/images/Home8.jpg","../assets/images/Home_4.jpg"]
+
+    const homeQuote = "Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến mới nhất, hãng Rohto."
+
+    const homeProduct = [
+        {
+            img: "../assets/images/Home17.jpg",
+            category: "Tyffany",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            disable: true,
+            oldprice: null,
+        },
+        {
+            img: "../assets/images/Home16.jpg",
+            category: "Ohui",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            disable: false,
+            oldprice: null,
+        },
+        {
+            img: "../assets/images/Home18.jpg",
+            category: "Home",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            disable: false,
+            oldprice: "450.000",
+        },
+        {
+            img: "../assets/images/Home19.jpg",
+            category: "Debora",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            disable: false,
+            oldprice: null,
+        },
+        {
+            img: "../assets/images/Home20.jpg",
+            category: "Sarvon",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            disable: false,
+            oldprice: null,
+        },
+        {
+            img: "../assets/images/Home21.jpg",
+            category: "Tyffany",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            disable: true,
+            oldprice: null,
+        }
+
+    ]
+
+    const homeProductTablet = [
+          {
+            img: "../assets/images/Home-product-md1.jpg",
+            category: "Home",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            oldprice: "450.000",
+        },
+        {
+            img: "../assets/images/Home-product-md2.jpg",
+            category: "Debora",
+            name: "Mỹ phẩm châu Âu",
+            price: "355.000",
+            oldprice: null,
+        }
+    ]
+
+    const homeProductMobile = {
+        img: "../assets/images/Home-product-md1.jpg",
+        category: "Home",
+        name: "Mỹ phẩm châu Âu",
+        price: "355.000",
+        oldprice: "450.000",
+    }
+
+    const homeProductCate = ["Mỹ phẫm","Chăm sóc da", "Dành cho tóc","Nước hoa","Trang sức", "Quà tặng"]
+
+    const homeSocials = [
+        {
+            icon: "fab fa-facebook-f", 
+            name:"Facebook"
+        },
+        {
+            icon: "fab fa-twitter", 
+            name:"Twitter"
+        },
+        {
+            icon: "fab fa-instagram", 
+            name:"Instagram"
+        },
+        {
+            icon: "fab fa-google-plus-g", 
+            name:"Google+"
+        },
+        {
+            icon: "fab fa-pinterest", 
+            name:"Pinterest"
+        },
+        {
+            icon: "fab fa-linkedin-in", 
+            name:"Linkedin"
+        }
+    ]
+
+    const homeAboutus = {
+        title : "Giới thiệu chung về mỹ phẩm handmade Mandala ",
+        text: "Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt. Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.  "
+    }
+
+    const homeBlog = {
+        title: "Review son kem Bourjois Velvet",
+        text: "Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt. ",
+        author: "Bởi NamTran ( 27 / 05 / 2015 )"
+    }

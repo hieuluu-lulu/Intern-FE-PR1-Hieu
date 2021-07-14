@@ -1,19 +1,11 @@
 /** @format */
 
 @import './variables';
-@import './mixins';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-@font-face {
-	font-family: 'utm-androgyne';
-	src: url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
-			format('woff'),
-		url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
-			format('opentype'),
-		url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
-			format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('http://fonts.cdnfonts.com/css/myriad-pro');
 @font-face {
 	font-family: 'UTM ViceroyJF';
 	src: url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.eot');
@@ -28,6 +20,11 @@
 		url('//db.onlinewebfonts.com/t/11f83a01c429e081482bf04fec422565.svg#UTM ViceroyJF')
 			format('svg');
 }
+
+@font-face {
+	font-family: 'UTM Androgyne';
+	src: url(../../../assets/fonts/UTM_Androgyne.ttf) format('woff');
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -40,8 +37,8 @@ html {
 }
 body {
 	font-size: 1.2rem;
-	font-family: OpenSans, sans-serif;
-	line-height: 1.7;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.6;
 	background: $body-color;
 }
 
@@ -65,4 +62,10 @@ p {
 }
 ul {
 	padding: 0;
+}
+button {
+	background-color: unset;
+	padding: 0;
+	outline: none;
+	border: none;
 }

@@ -1,0 +1,111 @@
+/** @format */
+
+.btn {
+	padding: 12px 16px;
+	color: $body-color;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	background: $btn-color;
+}
+.btn:hover {
+	color: $body-color;
+}
+
+.btn-bought {
+	@include btnProduct;
+	color: $text-color;
+	text-transform: uppercase;
+	position: relative;
+
+	&::before {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $text-color;
+		height: 50%;
+		width: 0;
+		border-top-right-radius: 12px;
+		border-top-left-radius: 12px;
+		@include transition;
+		opacity: 0.5;
+	}
+	&::after {
+		content: ' ';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		background-color: $text-color;
+		height: 50%;
+		width: 0;
+		border-bottom-left-radius: 12px;
+		border-bottom-right-radius: 12px;
+		@include transition;
+		opacity: 0.5;
+	}
+
+	&:hover::before,
+	&:hover::after {
+		width: 100%;
+	}
+}
+.btn-wish {
+	@include btnProduct;
+	background: $primary-color;
+	color: $body-color;
+
+	@include mobile {
+		margin: 0 1.5rem;
+	}
+	&:hover {
+		color: $primary-color;
+		background: $body-color;
+		@include transition;
+	}
+}
+.btn-reload {
+	@include btnProduct;
+
+	&:hover > i {
+		transform: rotate(90deg);
+		@include transition;
+	}
+}
+
+// tags
+
+.tags {
+	@include flex-box(null, null);
+	flex-wrap: wrap;
+}
+.tag {
+	padding: 0.2rem 0.7rem;
+	border: 1px solid $border-color;
+	margin: 0.5rem;
+	font-weight: bold;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $primary-color;
+		color: $body-color;
+	}
+}
+
+.carousel-item {
+	transition: all 0.5s ease-in-out;
+}
+.carousel-indicators {
+	bottom: -50px !important;
+	justify-content: flex-start !important;
+	margin-left: 19rem;
+	@include mobile {
+		top: 94px;
+		margin-left: 18rem;
+	}
+	button {
+		width: 6px !important;
+		height: 6px !important;
+		background-color: $text-color !important;
+		margin: 0 0.5rem;
+	}
+}
