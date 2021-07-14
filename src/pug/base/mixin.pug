@@ -1,5 +1,6 @@
 mixin breadcrumbs(arrBr)
     nav(aria-label='breadcrumb')
+    nav(style='--bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'gray\'/%3E%3C/svg%3E");' aria-label='breadcrumb')
         .container
             ol.breadcrumb.bg-white.pl-0.py-30px.mb-0
                 each item,index in arrBr
@@ -193,3 +194,184 @@ mixin productList(img,index,title,rating,description,price)
 
 
 
+                        li(class!=attributes.class).breadcrumb-item.active(aria-current='page')= item.name
+
+mixin formInput(type,text,id)
+    .mb-3
+        label(for="email" class="form__label")= `${text}*`
+        input(type= `${type}` id=`${id}` class="form__input")
+
+mixin homeOptions(icon,text)
+    .col-md-4.col-sm-12
+        .options__wrap(class!=attributes.class)
+            .options__wrap-icon 
+                i(class= `${icon}`)
+            span.options__wrap-text= text
+
+mixin homeImage(index)
+    .row.mt-3
+        if index === 1
+            .col-md-6.col-sm-12
+                .grid__container
+                    each img in homeGrid1
+                        .grid__container-item.grid__container-item--grid1
+                            img(src=`${img}` alt= "grid-img")
+            .col-md-6.col-sm-12 
+                .grid__col
+                    img(src="../assets/images/Home4.jpg" alt="img")
+                    .grid__col--hasIcon
+                        i.fas.fa-caret-right
+        if index === 2
+            .col-md-6.col-sm-12 
+                .grid__col
+                    img(src="../assets/images/Home6.jpg" alt="img")
+            .col-md-6.col-sm-12
+                .grid__container
+                    each img in homeGrid2
+                        .grid__container-item.grid__container-item--grid2
+                            img(src= `${img}` alt= "grid-img")
+
+mixin productBtn 
+    button.btn-bought Mua hàng
+    button.btn-wish
+        i.fas.fa-heart
+    button.btn-reload
+        i.fas.fa-sync-alt 
+
+mixin homeProduct(img, cate, title, price, oldprice, disable)
+    if disable 
+        .col-lg-2.col-md-6.col-sm-12
+            .card.product__card.product__card--disable
+                img.card-img-top.product__card-img(src=`${img}` alt= title)
+                .card-body.product__card-body
+                    p.card-text.body__cate= cate
+                    h5.card-title.body__title= title
+                    .body__line
+                    if oldprice!==null
+                        span.body__price= price 
+                            sup đ 
+                        span.body__oldprice= oldprice
+                            sup đ 
+                    else
+                        span.body__price= price 
+                            sup đ                   
+    else   
+        .col-lg-2.col-md-6.col-sm-12  
+            .card.product__card
+                img.card-img-top.product__card-img(src=`${img}` alt= title)
+                .card-body.product__card-body
+                    p.card-text.body__cate= cate
+                    h5.card-title.body__title= title
+                    .body__line
+                    if oldprice!==null
+                        span.body__price= price
+                            sup đ 
+                        span.body__oldprice= oldprice 
+                    else
+                        span.body__price= price
+                            sup đ 
+                    .product__card-footer
+                        +productBtn
+mixin tag(tags)  
+    .tags 
+        each tag in tags 
+            .tag= tag
+
+mixin quote(src)
+    .quote__wrap 
+        .quote__wrap-avatar
+            img(src=`${src}` alt="quote-avater") 
+        .quote__wrap-text 
+            p.text__main
+                q.text__main-quote
+                    span= homeQuote
+                .text__main-footer
+                    span.footer__author TUTILE
+                    span.footer__position _Giám đốc phát triển sản phẩm
+
+mixin detailProduct 
+    .overview__detail
+        h1.overview__detail-title= detailsProduct.title
+        span.overview__detail-code= detailsProduct.code 
+        .overview__detail-price 
+            span= `${detailsProduct.price}đ` 
+            span.price__old= `${detailsProduct.oldprice}đ`
+        p.overview__detail-desc= detailsProduct.desc
+        .mb-3 
+            label.form-label.overview__detail-label(for="color") Màu sắc
+            select#color.form-select.overview__detail-select
+                each item in detailsProduct.color
+                    option= item
+        .mb-3 
+            label.form-label.overview__detail-label(for="size") Size
+            select#color.form-select.overview__detail-select
+                each item in detailsProduct.size
+                    option= item
+        span.overview__detail-quantity Số lượng
+        +productBtn
+        .overview__detail-footer 
+            .footer__span 
+                span Shipping&amp; 
+                span Returns
+            img.footer__img(src="../assets/images/Detail-social.jpg" alt = "social")
+
+mixin detailCharacter(title,desc,img,index)
+    .row(class!=attributes.class).infor__character-item
+        .col-lg-8.col-md-8.col-sm-12
+            .item__name= title
+            .item__line(line!=attributes.line)
+            .item__desc= desc
+        .col-lg-4.col-sm-12 
+            img.item__image(src= img alt= `${title} ${index}`)
+
+mixin detailBestSell(title,icon,rating,price,img)
+    .infor__sell
+        .infor__sell-wrap 
+            .wrap__images 
+                img(src= img alt= title)
+            .wrap__detail
+                p.wrap__detail-title= title
+                .wrap__detail-like 
+                    i.like__icon(class= icon)
+                    i.like__icon(class= icon)
+                    i.like__icon(class= icon)
+                    i.like__icon(class= icon)
+                    i.like__icon(class= icon)
+                    span= `( ${rating} Lượt mua )`
+                p.wrap__detail-price=  price
+mixin productCart(img, cate, title, price, oldprice)
+    .col-lg-4.col-md-4.col-sm-12  
+        .card.product__card
+            img.card-img-top.product__card-img(src=`${img}` alt= title)
+            .card-body.product__card-body
+                p.card-text.body__cate= cate
+                a(href= "./details.html")
+                    h5.card-title.body__title= title
+                .body__line
+                if oldprice!==null
+                    span.body__price= price
+                        sup đ 
+                    span.body__oldprice= oldprice 
+                else
+                    span.body__price= price
+                        sup đ 
+                .product__card-footer
+                    +productBtn
+mixin productList(img,index,title,rating,description,price)
+    .row.mt-5
+        .col-md-4.col-sm-12
+            .product__list-image 
+                img(src= img alt=`product-list ${index}`)
+        .col-md-8.col-sm-12
+            .product__list-detail 
+                h1.detail__title= title 
+                .detail__like 
+                    i.detail__like-icon.fas.fa-heart
+                    i.detail__like-icon.fas.fa-heart 
+                    i.detail__like-icon.fas.fa-heart
+                    i.detail__like-icon.fas.fa-heart
+                    i.detail__like-icon.fas.fa-heart
+                    span= `( ${rating} Lượt thích )`
+                p.detail__desc= description
+                p.detail__price= `${price}đ`
+            +productBtn

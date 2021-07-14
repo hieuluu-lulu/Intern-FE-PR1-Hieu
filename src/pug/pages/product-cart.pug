@@ -1,0 +1,41 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./product.html",name: "Sản phẩm"},{link: "#",name: "Trang sức"} ])
+    section.cart
+        .container 
+            h1.cart__heading Giỏ hàng
+            .cart__table
+                table.table.table-bordered 
+                    thead.cart__table-head
+                        tr
+                            th(scope="col") Ảnh 
+                            th(scope="col") Tên sản phẩm 
+                            th(scope="col") Giá 
+                            th(scope="col") Số lượng
+                            th(scope="col") Tổng số 
+                            th(scope="col") Xóa
+                    tbody.cart__table-body
+                        each item,index in tableProductCart
+                            tr 
+                                td
+                                    img(src= item.image alt= `${item.name} ${index}`)
+                                td= item.name
+                                td
+                                    span.body__price= item.price
+                                        sup đ
+                                td
+                                    span.body__quantity= item.quantity
+                                td
+                                    span.body__total=item.total
+                                        sup đ
+                                td 
+                                    a.body__link(href="#")
+                                        i.far.fa-trash-alt
+            .cart__btnGroup
+                button.btn Tiếp tục mua hàng 
+                button.btn Xóa
+                button.btn Cập nhật

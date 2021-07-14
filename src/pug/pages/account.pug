@@ -1,0 +1,53 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./account.html",name: "Tài Khoản"} ])(class="warn")
+    section.account 
+        .container
+            .row
+                .col-lg-9.col-md-12.col-sm-12
+                    h1.account__heading Tài Khoản
+                    .account__table
+                            table.table.table-bordered 
+                                thead.account__table-head
+                                    tr
+                                        th(scope="col") Order 
+                                        th(scope="col") Date
+                                        th(scope="col") Tình trạng thanh toán
+                                        th(scope="col") Tổng
+                                        th(scope="col") Nợ
+                                tbody.account__table-body
+                                    each item in account 
+                                        tr 
+                                            td= `#${item.code}`
+                                            td= item.date
+                                            td
+                                                span.body__status= item.status
+                                            td 
+                                                span= item.total 
+                                                    sup đ
+                                            td
+                                                if item.debt == 0
+                                                    span= item.debt 
+                                                else 
+                                                    span= item.debt 
+                                                        sup đ
+                .col-lg-3.d-lg-block.d-none
+                    .account__infor 
+                        h2.account__infor-heading Chi tiết tài khoản
+                        .account__infor-expand 
+                            .expand__user 
+                                i.fas.fa-user 
+                                .expand__user-wrap 
+                                    span.wrap__name GiangLe
+                                    span.wrap__email Leanhgiang89@gmail.com 
+                            .expand__address 
+                                i.fas.fa-map-marker-alt 
+                                p.expand__address-text Tòa nhà Hà Nội group 442 Đội Cấn, Ba Đình, Hà Nội
+                            .expand__phone
+                                i.fas.fa-phone-alt 
+                                span (04) 3786 8904
+                                
