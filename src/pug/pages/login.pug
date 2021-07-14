@@ -1,0 +1,21 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./login.html",name: "Đăng nhập"} ])
+        section.login 
+            .login__heading
+                h1.login__heading-title Đăng nhập    
+                a(href="signup.html").btn.login__heading-btn Đăng ký
+            .login__body 
+                h1.login__body-title Khách hàng đăng ký
+                p.login__body-text Nếu bạn có một tài khoản xin vui lòng đăng nhập
+                .col-lg-6.col-md-12.col-sm-12
+                    form.login__body-form
+                        +formInput("email","Địa chỉ email","email")
+                        +formInput("password","Password","pass")
+                        .mb-3.mt-5.d-flex.align-items-center
+                            a.form__forgot(href="#") Quên mật khẩu?
+                            button.btn.form__btn(type="submit") Đăng nhập

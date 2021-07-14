@@ -1,0 +1,15 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./product.html",name: "Sản phẩm"},{link: "#",name: "Trang sức"} ])
+    section.product-banner
+        .container
+            .row.align-items-center
+                h1.product-banner__percent Giảm giá 50%
+                .product-banner__time
+                    h2 Trong vòng 3 ngày 
+                    h3 ( 25/5 - 28/05/2015 )
+                img.product-banner__image(src="")

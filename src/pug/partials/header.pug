@@ -1,49 +1,74 @@
+
 header.header 
     .container 
         .row 
             nav.header__nav
                 a.header__nav-brand(href="#home")
                     img(src="./assets/images/logo.png" alt= "logo")
+                input(type="checkbox" id="menu" hidden )
                 ul.header__nav-list
                     each item in listMenu 
                         if ( item.name === "Sản phẩm")
-                          li.list__item
-                            a.list__item-link.list__item--hasChild(href= `#${item.href}`)= item.name 
-                            i.fas.fa-chevron-down
-                            .mega-menu
-                                .mega-menu__col 
-                                    h1.mega-menu__col-heading Dưỡng da
-                                    each value in skin 
-                                        ul.mega-menu__col-wrap
-                                            li.wrap__item
-                                                a(href="#")= value
-                                .mega-menu__col
-                                    h1.mega-menu__col-heading Nước hoa
-                                    each dress in dresses
-                                        ul.mega-menu__col-wrap
-                                            li.wrap__item
-                                                a(href="#")= dress
-                                .mega-menu__col
-                                    h1.mega-menu__col-heading Trang sức
-                                    each dress in dresses
-                                        ul.mega-menu__col-wrap
-                                            li.wrap__item
-                                                a(href="#")= dress
-                        else    
-                            li.list__item
+                            li.list__item.list__item--hasChild
                                 a.list__item-link(href= `#${item.href}`)= item.name 
+                                i.fas.fa-chevron-down
+                                .mega-menu
+                                    .mega-menu__col 
+                                        h1.mega-menu__col-heading Dưỡng da
+                                        each value in skin 
+                                            ul.mega-menu__col-wrap
+                                                li.wrap__item
+                                                    a(href="#")= value
+                                    .mega-menu__col
+                                        h1.mega-menu__col-heading Nước hoa
+                                        each dress in dresses
+                                            ul.mega-menu__col-wrap
+                                                li.wrap__item
+                                                    a(href="#")= dress
+                                    .mega-menu__col
+                                        h1.mega-menu__col-heading Trang sức
+                                        each dress in dresses
+                                            ul.mega-menu__col-wrap
+                                                li.wrap__item
+                                                    a(href="#")= dress
+                        else if(item.name === "Trang chủ") 
+                            li.list__item
+                                a.list__item-link(href= `/`)= item.name 
+                        else
+                            li.list__item
+                                a.list__item-link(href= `/${item.href}.html`)= item.name 
                                     
-                .header__nav-cart 
-                    i.fas.fa-shopping-cart
-                    .cart__wrap 
-                        .cart__wrap-item 
-                            .item__image 
-                                img(src="", alt="cart-img")
-                            .item__details
-                                span Áo sơ mi nam 
-                                span 120.000 
-                                span đ
+                .header__nav-right
+                    .right__cart 
+                        i.fas.fa-shopping-cart
+                        .right__cart-wrap 
+                            .wrap__items 
+                                .wrap__items-image 
+                                    img(src="./assets/images/cart-avatar.jpg", alt="cart-img")
+                                .wrap__items-details
+                                    p.details__title Áo sơ mi nam   
+                                        span.ms-3 x
+                                    p.details__price 120.000 
+                                        sup đ
+                              
+                            .wrap__items 
+                                .wrap__items-image 
+                                    img(src="./assets/images/cart-avatar.jpg", alt="cart-img")
+                                .wrap__items-details
+                                    p.details__title Áo sơ mi nam
+                                        span.ms-3 x
+                                    p.details__price 120.000 
+                                        sup đ
                                 
-                .header__nav-search 
-                    i.fas.fa-search
-           
+                            .wrap__footer
+                                .wrap__footer-total
+                                    p Tổng số
+                                    p 240.000
+                                        sup đ
+                                .btn.wrap__footer-btn Giỏ hàng
+                    .right__search 
+                        i.fas.fa-search
+                    label(for="menu")
+                        .right__bars
+                            i.fas.fa-bars
+            

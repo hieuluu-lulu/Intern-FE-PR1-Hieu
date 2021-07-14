@@ -1,0 +1,258 @@
+/** @format */
+
+.overview {
+	padding: 5.2rem 0;
+
+	&__listImg {
+		@include flex-box(center, center);
+		flex-direction: column;
+		width: 100%;
+
+		img {
+			cursor: pointer;
+		}
+		&-image {
+			-o-object-fit: cover;
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+	&__mainImg {
+		width: 100%;
+		height: 100%;
+		border: 1px solid $border-color;
+
+		&-image {
+			width: 100%;
+			height: 100%;
+			-o-object-fit: contain;
+			object-fit: contain;
+			-o-object-position: 50%;
+			object-position: 50% 70%;
+		}
+	}
+
+	&__detail {
+		width: 100%;
+		padding-left: 1rem;
+
+		@include mobile {
+			padding-left: 0rem;
+			margin-top: 2.5rem;
+		}
+
+		&-title {
+			text-transform: uppercase;
+			@include font('Open Sans', 2.1, null, null, null);
+			margin-bottom: 0.5rem;
+			color: $detail-product-color;
+		}
+
+		&-code {
+			display: block;
+			text-transform: uppercase;
+			color: $detail-product-color;
+			font-size: 1.3rem;
+			font-weight: bold;
+			margin-bottom: 1rem;
+		}
+		&-price {
+			@include font('Lobster', 2.2, null, null, 600);
+			margin-bottom: 2rem;
+			.price__old {
+				margin-left: 1rem;
+				color: $text-light-color;
+				opacity: 0.45;
+				font-size: 1.8rem;
+			}
+		}
+
+		&-desc {
+			@include font('Open Sans', 1.3, 24px, null, 400);
+			color: $text-light-color;
+			margin-bottom: 1rem;
+		}
+
+		&-label {
+			@include font('Open Sans', 1.4, null, null, 600);
+			text-transform: uppercase;
+			margin-bottom: 1.2rem;
+		}
+		&-select {
+			width: 80%;
+			padding: 1rem 2rem;
+			font-size: 1.4rem;
+			color: $text-light-color;
+			outline: none !important;
+			border-radius: 0;
+			margin-bottom: 1.8rem;
+
+			&:focus {
+				outline: none !important;
+				border: none !important;
+			}
+		}
+
+		&-quantity {
+			display: block;
+			@include font('Open Sans', 1.4, null, null, 600);
+			text-transform: uppercase;
+			margin-bottom: 1.2rem;
+		}
+		&-footer {
+			margin-top: 1.5rem;
+			@include flex-box(center, flex-start);
+
+			@include mobile {
+				flex-wrap: wrap;
+			}
+			.footer__span {
+				display: flex;
+				& span:nth-child(2) {
+					color: $detail-return;
+				}
+			}
+
+			& > img {
+				-o-object-fit: contain;
+				object-fit: contain;
+				@include mobile {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+//section infor
+
+.infor {
+	width: 100%;
+	padding-bottom: 11rem;
+
+	&__tab {
+		@include flex-box(center, flex-start);
+		color: $text-light-color;
+		border-bottom: 1px solid $border-color;
+
+		&-title {
+			margin-right: 2rem;
+			text-transform: uppercase;
+			@include font('Open Sans', 2, 2.4, null, bold);
+			cursor: pointer;
+			&--bestSell {
+				color: $text-color;
+			}
+
+			@include mobile {
+				font-size: 1.2rem;
+			}
+		}
+		.active {
+			color: $text-color;
+		}
+	}
+	&__character {
+		display: flex;
+		flex-direction: column;
+
+		.revert {
+			flex-flow: row-reverse;
+			text-align: right;
+			flex-wrap: wrap;
+
+			@include mobile {
+				flex-flow: column-reverse;
+				flex-wrap: wrap;
+			}
+		}
+
+		&-item {
+			padding-top: 6rem;
+			align-items: center;
+
+			.item__name {
+				@include font('Open Sans', 2.1, null, null, normal);
+				text-transform: uppercase;
+			}
+			.item__line {
+				border-top: 1px solid $border-color;
+				width: 10%;
+				margin-bottom: 1.8rem;
+
+				&[line='line-revert'] {
+					float: right;
+				}
+			}
+			.item__desc {
+				clear: both;
+				@include font('Open Sans', 1.8, null, null, normal);
+				color: $text-light-color;
+			}
+			.item__image {
+				width: 100%;
+				-o-object-fit: contain;
+				object-fit: contain;
+
+				@include mobile {
+					width: auto;
+					float: right;
+				}
+			}
+
+			@include mobile {
+				flex-flow: column-reverse;
+				flex-wrap: wrap;
+				&:nth-child(1) {
+					order: 2;
+				}
+				&:nth-child(2) {
+					order: 1;
+				}
+				&:nth-child(3) {
+					order: 4;
+				}
+				&:nth-child(4) {
+					order: 3;
+				}
+			}
+		}
+	}
+
+	&__sell {
+		padding: 3rem 0;
+		border-bottom: 1px dashed $border-color;
+		&:nth-child(5) {
+			border: none;
+		}
+		&:nth-last-child(1) {
+			border: none;
+		}
+		&-wrap {
+			@include flex-box(center, space-around);
+
+			.wrap__detail {
+				&-title {
+					@include font('Open Sans', 1.3, null, null, 600);
+				}
+				&-like {
+					padding: 1rem 0;
+					@include flex-box(center, null);
+					.like__icon {
+						margin-right: 0.2rem;
+					}
+
+					span {
+						display: inline-block;
+						margin-top: -0.2rem;
+						margin-left: 0.5rem;
+						color: $text-light-color;
+					}
+				}
+				&-price {
+					@include font('Lobster', 1.4, null, null, bold);
+				}
+			}
+		}
+	}
+}

@@ -4,4 +4,13 @@
 @import './base/global';
 @import './base/variables';
 @import './base/mixins';
+@import './base/base';
 @import './components/header';
+@import './components/footer';
+@import './components/breadcrumb';
+@import './components/grid';
+@import './components/homeProduct';
+@import './pages/login';
+@import './pages/index';
+@import './pages/signup';
+@import './pages/details';
