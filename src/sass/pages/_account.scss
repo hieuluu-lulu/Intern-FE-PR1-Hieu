@@ -1,0 +1,97 @@
+/** @format */
+
+.warn {
+	color: $detail-return !important;
+}
+.account {
+	padding: 3rem 0;
+
+	&__heading {
+		font-size: 2.8rem;
+		text-transform: uppercase;
+	}
+
+	&__table {
+		margin: 3rem 0;
+		text-align: center;
+		vertical-align: middle;
+		@include font('Open Sans', 1.6);
+		width: 100%;
+		&-head {
+			text-transform: uppercase;
+			background: $header-color;
+			@include font('Open Sans', 1.6, null, null, 600);
+			th {
+				padding: 1.4rem;
+			}
+		}
+		&-body {
+			td {
+				padding: 1.4rem;
+			}
+
+			.body__status {
+				color: $detail-return;
+			}
+		}
+	}
+
+	&__infor {
+		width: 100%;
+		margin: 1rem 0 2rem 2rem;
+		&-heading {
+			@include font('Open Sans', 1.6, null, null, 600);
+			text-transform: uppercase;
+			padding: 1.7rem 0;
+			border-bottom: 1px solid $border-color;
+		}
+		&-expand {
+			margin-top: 1.8rem;
+
+			.expand__user {
+				@include flex-box(flex-start, null);
+				margin-bottom: 2.4rem;
+
+				& > i {
+					font-size: 1.8rem;
+					margin-top: 1rem;
+				}
+
+				&-wrap {
+					margin-left: 1.4rem;
+
+					span {
+						display: block;
+						width: 100%;
+					}
+					.wrap__name {
+						font-size: 2.4rem;
+					}
+					.wrap__email {
+						font-size: 1.6rem;
+					}
+				}
+			}
+			.expand__address {
+				@extend .expand__user;
+				margin-bottom: 0;
+				& > p {
+					font-size: 1.6rem;
+					margin-left: 1.4rem;
+				}
+			}
+
+			.expand__phone {
+				@include flex-box(center, null);
+				& > i {
+					font-size: 1.6rem;
+				}
+				& > span {
+					display: block;
+					font-size: 1.6rem;
+					margin-left: 1.4rem;
+				}
+			}
+		}
+	}
+}

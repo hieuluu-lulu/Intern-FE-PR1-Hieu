@@ -1,0 +1,65 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./contact.html",name: "Liên hệ"} ])
+    section.blog-detail 
+        .container 
+            h1.blog-detail__heading Blog
+            .row 
+                .col-lg-3.col-md-3.d-lg-block.d-none
+                    .blog-detail__cate 
+                        h3.blog-detail__cate-head Bài viết mới nhất
+                        .blog-detail__cate-post
+                            each item,index in blog_detail_cate
+                                .row.mb-5.align-items-center
+                                    .col-lg-4
+                                        .post__img
+                                            img(src= item.img, alt= item.author + index)
+                                            .post__img-block--1
+                                            .post__img-block--2
+                                    .col-lg-6 
+                                        a(href="/blog-detail.html").post__wrap
+                                            span.post__wrap-day= item.day 
+                                            span.post__wrap-month= `/ ${item.month}`
+                                            span.post__wrap-author= `Đăng bởi ${item.author}`
+                        .blog-detail__cate-tag
+                            h3.blog-detail__cate-head.blog-detail__cate-head--bold Blog tags
+                            +tag(["Đồng hồ","Túi","Phụ kiện","Giày","Sandal","Áo sơ mi","Nước hoa","Trẻ em","Thời trang nữ"])
+                        .blog-detail__cate-video
+                            h3.blog-detail__cate-head.blog-detail__cate-head--bold Latest video
+                            .video__image
+                                img(src="../assets/images/13_Blog_Detail.jpg")
+                                .video__icon 
+                                    i.fas.fa-caret-right
+                .col-lg-9.col-md-12.col-sm-12.px-5
+                    .blog-detail__content 
+                        .blog-detail__content-image 
+                            img(src= blog_detail_content.img alt= blog_detail_content.title)
+                        h1.blog-detail__content-title= blog_detail_content.title 
+                        p.blog-detail__content-text= blog_detail_content.content 
+                        span.blog-detail__content-author= `Đăng bởi ${blog_detail_content.author} ( 27 / 05 / 2015 )`
+                        .blog-detail__content-footer 
+                            span Đọc thêm
+                                i.fas.fa-chevron-right
+                            span=`${blog_detail_content.comment} Bình luận`
+                    span.blog-detail__tag Tag : 
+                        span Men
+                    .blog-detail__opinion 
+                        h3.blog-detail__opinion-head Đóng góp ý kiến
+                        form.blog-detail__opinion-form 
+                            +formBlogDetail(text,"Tên",name)
+                            +formBlogDetail(email,"Email",email)
+                            .row.my-5
+                                .col-2
+                                    label(for= "message").col-form-label.form__label.py-4 ý kiến 
+                                        span *
+                                .col-10
+                                    textarea(id="message" rows="10").form__input.py-4
+                            button.btn.form__btn Gửi ý kiến
+
+
+                    
+
