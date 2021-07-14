@@ -4,7 +4,8 @@
 @import './mixins';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @font-face {
 	font-family: 'utm-androgyne';
 	src: url('https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf')
@@ -65,4 +66,15 @@ p {
 }
 ul {
 	padding: 0;
+}
+.btn {
+	padding: 12px 16px;
+	color: $body-color;
+	font-size: 1.2rem;
+	font-family: OpenSans;
+	text-transform: uppercase;
+	background: $btn-color;
+}
+.btn:hover {
+	color: $body-color;
 }

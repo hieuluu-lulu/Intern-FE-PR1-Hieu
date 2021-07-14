@@ -1,0 +1,78 @@
+/** @format */
+
+@import '../base/mixins';
+@import '../base/variables';
+@import '../base/global';
+
+.footer {
+	background: $footer-color;
+	font-size: 1.4rem;
+	color: $text-light-color;
+	font-family: Roboto, sans-serif;
+
+	&__heading {
+		@include font(Roboto, 1.8, null, null, null);
+		text-transform: uppercase;
+		color: $text-white;
+		padding-bottom: 3rem;
+	}
+	&__list {
+		&-item {
+			line-height: 2;
+			@include transition;
+
+			&:hover {
+				transform: translateX(5px);
+			}
+			span:hover {
+				color: $primary-color;
+			}
+			span[email='email'] {
+				color: $primary-color;
+				font-style: italic;
+			}
+			i {
+				color: $primary-color;
+				margin-right: 5px;
+			}
+			.item__link {
+				color: $text-light-color;
+				&::before {
+					@include before-list-item;
+				}
+
+				&:hover {
+					color: $primary-color;
+				}
+
+				i {
+					color: $primary-color;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+	&__expand {
+		padding-top: 3rem;
+
+		img {
+			float: right;
+			@include mobile {
+				float: none;
+				margin-top: 10px;
+			}
+
+			@include tablet {
+				float: none;
+				margin-top: 10px;
+			}
+		}
+	}
+}
+#footer__top {
+	padding: 6rem 6rem 0;
+}
+#footer__bottom {
+	padding: 0 6rem 3rem;
+	border-top: 1px solid $border-color;
+}
