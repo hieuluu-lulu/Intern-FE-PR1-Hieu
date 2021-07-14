@@ -1,0 +1,147 @@
+/** @format */
+
+@mixin box($width, $height: $width) {
+	height: $height;
+	width: $width;
+}
+
+@mixin flex-box($align, $justify) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	justify-self: center;
+	align-items: center;
+}
+
+@mixin font($font-family, $size, $line-height, $letter-spacing, $font-weight) {
+	font-size: $size * 1rem;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+	font-weight: $font-weight;
+	font-family: $font-family, sans-serif;
+}
+
+@mixin position($position, $arg) {
+	@each $o in top right bottom left {
+		$i: index($arg, $o);
+		@if $i and
+			$i +
+			1 <
+			length($arg) and
+			type-of(nth($arg, $i + 1)) ==
+			number
+		{
+			#{$o}: nth($args, $i + 1);
+		}
+	}
+	position: $position;
+}
+
+@mixin prefix($property, $value, $vendors: webkit moz ms o, $default: true) {
+	@if $vendors {
+		@each $vendor in $vendors {
+			#{"-" + $vendor + "-" + $property}: #{$value};
+		}
+	}
+	@if $default {
+		#{$property}: #{$value};
+	}
+}
+
+@mixin absolute($args: '') {
+	@include position(absolute, $args);
+}
+
+@mixin fixed($args: '') {
+	@include position(fixed, $args);
+}
+
+@mixin relative($args: '') {
+	@include position(relative, $args);
+}
+
+@mixin transition {
+	transition: all 0.35s ease;
+	-webkit-transition: all 0.35s ease;
+	-moz-transition: all 0.35s ease;
+	-o-transition: all 0.35s ease;
+}
+
+@mixin background($background-repeat, $background-position, $background-size) {
+	background-repeat: $background-repeat;
+	background-position: $background-position;
+	background-size: $background-size;
+}
+
+@mixin keyframes($name) {
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@include keyframes(FadeIn) {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 20px, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@include keyframes(FadeInLeft) {
+	from {
+		opacity: 0;
+		transform: translateX(-50%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@include keyframes(FadeInRight) {
+	from {
+		opacity: 0;
+		transform: translateX(50%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+	@media (max-width: #{$mobile-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
+}
