@@ -83,9 +83,19 @@
 }
 
 @mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
 	@keyframes #{$name} {
 		@content;
 	}
+}
+
+@mixin setSize($margin: 0, $padding: 0, $height: 0, $width: null) {
+	margin: $margin;
+	padding: $padding;
+	height: $height;
+	width: $width;
 }
 
 @include keyframes(FadeIn) {
@@ -124,6 +134,17 @@
 	}
 }
 
+@mixin before-list-item {
+	content: '';
+	height: 5px;
+	width: 5px;
+	background: #789629;
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 5px;
+}
 $mobile-width: 480px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
