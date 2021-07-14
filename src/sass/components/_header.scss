@@ -143,6 +143,11 @@
 
 			.right__cart {
 				cursor: pointer;
+
+				& > a {
+					color: $text-color;
+				}
+
 				&:hover > .right__cart-wrap {
 					visibility: visible;
 					opacity: 1;
