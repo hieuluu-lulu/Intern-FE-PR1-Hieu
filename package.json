@@ -1,26 +1,29 @@
 {
-  "name": "pug-sass",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": " gulp serve",
-    "sass": "gulp sass",
-    "assets": "gulp assets"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.27.3",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-pug": "^5.0.0",
-    "gulp-sass": "^5.0.0"
-  },
-  "dependencies": {
-    "node-sass": "^6.0.1",
-    "pug": "^3.0.2"
-  }
+	"name": "pug-sass",
+	"version": "1.0.0",
+	"description": "",
+	"main": "product.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"gulp": " gulp serve",
+		"sass": "gulp sass",
+		"assets": "gulp assets",
+		"db": "json-server --watch db.json --port 4000"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"browser-sync": "^2.27.3",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-pug": "^5.0.0",
+		"gulp-sass": "^5.0.0"
+	},
+	"dependencies": {
+		"json-server": "^0.16.3",
+		"node-sass": "^6.0.1",
+		"pug": "^3.0.2",
+		"tata-js": "^0.1.5"
+	}
 }

@@ -26,9 +26,9 @@ block content
                             h3.head__title Danh mục sản phẩm
                         ul.product__category-list
                             each item in category 
-                                if item == "Trang sức"
-                                    li.list__item   
-                                        a.list__item-link(data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample")= item
+                                if item == "Mỹ phẩm"
+                                    li.list__item  
+                                        a.list__item-link#comestic(data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample")= item
                                             i.fas.fa-caret-right.link__icon
                                         ul.list__item-child.collapse#collapseExample 
                                             each child in categoryChild 
@@ -56,7 +56,7 @@ block content
                             i.fas.fa-caret-left 
                             - var n = 1
                             while n < 4
-                                span= n++
+                                span.pagination__number= n++
                             i.fas.fa-caret-right 
 
                     input(type="checkbox" id="list" hidden)
@@ -66,16 +66,16 @@ block content
                     .product__list 
                         each item,index in productList 
                             +productList(item.image,index, item.title,item.rating, item.desc,item.price)
-                    .product__filter
-                        .product__filter-icon 
-                            label(for="list")
-                                i.fas.fa-th-large
-                            label(for="list")
-                                i.fas.fa-list
-                        .product__filter-pagination
-                            i.fas.fa-caret-left 
-                            - var n = 1
-                            while n < 4
-                                span= n++
-                            i.fas.fa-caret-right 
+                    //- .product__filter
+                    //-     .product__filter-icon 
+                    //-         label(for="list")
+                    //-             i.fas.fa-th-large
+                    //-         label(for="list")
+                    //-             i.fas.fa-list
+                    //-     .product__filter-pagination
+                    //-         i.fas.fa-caret-left 
+                    //-         - var n = 1
+                    //-         while n < 4
+                    //-             span= n++
+                    //-         i.fas.fa-caret-right 
 

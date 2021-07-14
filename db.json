@@ -1,0 +1,206 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "img": "../assets/images/Home17.jpg",
+      "category": "Home",
+      "name": "Mỹ phẩm châu Âu",
+      "price": "260000",
+      "oldprice": "450000"
+    },
+    {
+      "id": 2,
+      "img": "../assets/images/Home16.jpg",
+      "category": "Tyffany",
+      "name": "Mỹ phẩm châu Á",
+      "price": "355000",
+      "oldprice": "550000"
+    },
+    {
+      "id": 3,
+      "img": "../assets/images/Home18.jpg",
+      "category": "Home",
+      "name": "Mỹ phẩm châu Mỹ",
+      "price": "305000",
+      "oldprice": "380000"
+    },
+    {
+      "id": 4,
+      "img": "../assets/images/Home21.jpg",
+      "category": "Debora",
+      "name": "Mỹ phẩm châu Phi",
+      "price": "455000",
+      "oldprice": "495000"
+    },
+    {
+      "id": 5,
+      "img": "../assets/images/Home20.jpg",
+      "category": "Ohui",
+      "name": "Mỹ phẩm châu Âu",
+      "price": "302000",
+      "oldprice": "450000"
+    },
+    {
+      "id": 6,
+      "img": "../assets/images/Home21.jpg",
+      "category": "Tyffany",
+      "name": "Mỹ phẩm châu Âu",
+      "price": "315000",
+      "oldprice": "365000"
+    },
+    {
+      "id": 7,
+      "img": "../assets/images/Home17.jpg",
+      "category": "Tyffany",
+      "name": "Mỹ phẩm châu Á",
+      "price": "335000",
+      "oldprice": "450000"
+    },
+    {
+      "id": 8,
+      "img": "../assets/images/Home16.jpg",
+      "category": "Ohui",
+      "name": "Mỹ phẩm châu Mỹ",
+      "price": "325000",
+      "oldprice": "550000"
+    },
+    {
+      "id": 9,
+      "img": "../assets/images/Home21.jpg",
+      "category": "Home",
+      "name": "Mỹ phẩm châu Phi",
+      "price": "255000",
+      "oldprice": "380000"
+    },
+    {
+      "id": 10,
+      "img": "../assets/images/Home18.jpg",
+      "category": "Debora",
+      "name": "Mỹ phẩm châu Âu",
+      "price": "375000",
+      "oldprice": "400000"
+    },
+    {
+      "id": 11,
+      "img": "../assets/images/Home20.jpg",
+      "category": "Sarvon",
+      "name": "Mỹ phẩm châu Á",
+      "price": "425000",
+      "oldprice": "450000"
+    },
+    {
+      "id": 12,
+      "img": "../assets/images/Home21.jpg",
+      "category": "Ohui",
+      "name": "Mỹ phẩm châu Mỹ",
+      "price": "305000",
+      "oldprice": "365000"
+    },
+    {
+      "id": 13,
+      "img": "../assets/images/Home17.jpg",
+      "category": "Tyffany",
+      "name": "Mỹ phẩm châu Mỹ",
+      "price": "435000",
+      "oldprice": "452000"
+    },
+    {
+      "id": 14,
+      "img": "../assets/images/Home16.jpg",
+      "category": "Tyffany",
+      "name": "Mỹ phẩm châu Phi",
+      "price": "355000",
+      "oldprice": "520000"
+    },
+    {
+      "id": 15,
+      "img": "../assets/images/Home18.jpg",
+      "category": "Ohui",
+      "name": "Mỹ phẩm châu Á",
+      "price": "355000",
+      "oldprice": "388000"
+    },
+    {
+      "id": 16,
+      "img": "../assets/images/Home19.jpg",
+      "category": "Debora",
+      "name": "Mỹ phẩm châu Âu",
+      "price": "355000",
+      "oldprice": "415000"
+    },
+    {
+      "id": 17,
+      "img": "../assets/images/Home20.jpg",
+      "category": "Sarvon",
+      "name": "Mỹ phẩm châu Mỹ",
+      "price": "385000",
+      "oldprice": "450000"
+    },
+    {
+      "id": 18,
+      "img": "../assets/images/Home21.jpg",
+      "category": "Ohui",
+      "name": "Mỹ phẩm châu Âu",
+      "price": "345000",
+      "oldprice": "375000"
+    }
+  ],
+  "payments": [
+    {
+      "name": "Hiếu",
+      "order": [
+        {
+          "id": 1,
+          "img": "../assets/images/Home17.jpg",
+          "category": "Home",
+          "name": "Mỹ phẩm châu Âu",
+          "price": "260000",
+          "oldprice": "450000",
+          "inCart": 1
+        }
+      ],
+      "total": 260000,
+      "email": "hieu@gmail.com",
+      "phone": "1234567891",
+      "address": "District, Da Nang City",
+      "id": 2
+    },
+    {
+      "name": "Lưu Văn Trung Hiếu",
+      "order": [
+        {
+          "id": 1,
+          "img": "../assets/images/Home17.jpg",
+          "category": "Home",
+          "name": "Mỹ phẩm châu Âu",
+          "price": "260000",
+          "oldprice": "450000",
+          "inCart": 2
+        },
+        {
+          "id": 2,
+          "img": "../assets/images/Home16.jpg",
+          "category": "Tyffany",
+          "name": "Mỹ phẩm châu Á",
+          "price": "355000",
+          "oldprice": "550000",
+          "inCart": 1
+        },
+        {
+          "id": 3,
+          "img": "../assets/images/Home18.jpg",
+          "category": "Home",
+          "name": "Mỹ phẩm châu Mỹ",
+          "price": "305000",
+          "oldprice": "380000",
+          "inCart": 1
+        }
+      ],
+      "total": 1180000,
+      "email": "hieulvtgcd17213@fpt.edu.vn",
+      "phone": "0796849035",
+      "address": "District, Da Nang City",
+      "id": 3
+    }
+  ]
+}

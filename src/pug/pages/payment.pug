@@ -1,0 +1,88 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block header
+block content 
+    .container
+        .row
+            .col-md-6.col-sm-12
+                .breadcrumbs.mt-5
+                    h1.ps-4.mb-4.breadcrumbs__heading Madala 
+                    +breadcrumbs([{link: "/",name: "Home"}, {link: "./product-cart.html",name: "Giỏ hàng"},{link: "./payment.html",name: "Thanh toán"} ])
+                section.payment 
+                    h3.payment__title Thông tin giao hàng
+                    .payment__form
+                        form#form-payment.row.g-3.needs-validation(action="") 
+                            .col-md-12
+                                input#name.payment__form-input(type='text' placeholder="Họ và tên")
+                                .valid__feedback.valid__feedback--name Hợp lệ
+                            .d-flex
+                                .col-md-8.pe-4
+                                    input#email.payment__form-input(type='email' placeholder="Email")
+                                    .valid__feedback.valid__feedback--email Hợp lệ
+                                .col-md-4 
+                                    input#phone.payment__form-input(type='tel' placeholder="Số điện thoại")
+                                    .valid__feedback.valid__feedback--phone Hợp lệ
+                            .col-md-12
+                                input#address.payment__form-input(type='text' placeholder="Địa chỉ")
+                                .valid__feedback.valid__feedback--address Hợp lệ
+                            .payment__form-footer
+                                a.col-md-3(href="./product-cart.html") 
+                                    i.fas.fa-chevron-left
+                                    |Giỏ hàng
+                                button#pay(type="submit" ).btn.col-md-6 Thanh toán
+                                //- #payment.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='paymentLabel' aria-hidden='true')
+                                //-     .modal-dialog.modal-dialog-centered
+                                //-         .modal-content.modal__payment
+                                //-             .modal-header.modal__payment-header
+                                //-                 h5#paymentLabel.modal-title Xác nhận thanh toán?
+                                //-                 button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                //-             .modal-body.m-auto
+                                //-                 .modal__body-icon 
+                                //-                     i.fas.fa-exclamation-triangle
+                                //-             .modal-footer.m-auto.modal__payment-footer
+                                //-                 button.btn.btn-unpayment(type='button' data-bs-dismiss='modal') Hủy
+                                //-                 button.btn.btn-accept(type='submit' data-bs-dismiss='modal') Xác nhận
+            .col-md-6
+                section.product
+                    .product__content 
+                        .wrap
+                            .product__content-order 
+                                .order__detail
+                                    .order__detail-image
+                                        img(src="../assets/images/Home16.jpg" alt="") 
+                                    .order__detail-desc 
+                                        h1.desc__heading Mỹ phẩm châu Âu
+                                        span x2
+                                .order__price 
+                                    span 355.000
+                                        sup đ
+                                
+                        .product__content-summary 
+                            .summary__total 
+                                p.summary__total-text Tạm tính 
+                                p.summary__total-price 355.000
+                                    sup đ
+                            .summary__ship 
+                                p.summary__ship-text Phí vận Chuyển
+                                p.summary__ship-price 35.000
+                                    sup đ
+                        .product__content-bill 
+                            p.bill__text Tổng cộng 
+                            p.bill__price 355.000
+                                sup đ
+block footer                          
+
+                            
+
+
+
+                
+
+                            
+                        
+
+
+
+
+
+
