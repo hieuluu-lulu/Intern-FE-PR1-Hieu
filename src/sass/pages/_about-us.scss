@@ -1,0 +1,32 @@
+/** @format */
+.about {
+	padding: 3rem 0;
+
+	&__heading {
+		@include font('Open Sans', 2.8);
+		text-transform: uppercase;
+		margin-bottom: 2.5rem;
+	}
+	&__img {
+		width: 100%;
+		-o-object-fit: contain;
+		object-fit: contain;
+		margin-bottom: 2.2rem;
+	}
+
+	&__title {
+		@include font('Open Sans', 1.8, null, null, 600);
+		text-transform: uppercase;
+		margin: 3rem 0 1.6rem;
+	}
+
+	&__content {
+		@include font('Open Sans', 1.4, 1.8);
+		color: $text-light-color;
+		margin-bottom: 2.2rem;
+	}
+	&__expand {
+		font-size: 1.3rem;
+		color: $text-light-color;
+	}
+}

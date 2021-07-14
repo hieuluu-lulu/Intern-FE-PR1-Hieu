@@ -1,0 +1,53 @@
+/** @format */
+
+.cart {
+	padding: 3rem 0;
+
+	&__heading {
+		font-size: 2.8rem;
+		text-transform: uppercase;
+	}
+	&__table {
+		margin: 3rem 0;
+		text-align: center;
+		width: 100%;
+
+		&-head {
+			font-size: 1.6rem;
+			background: $header-color;
+			text-transform: uppercase;
+		}
+		&-body {
+			@include font('Open Sans', 1.5);
+			vertical-align: middle !important;
+
+			.body__price {
+				@include font('Lobster', 1.5);
+			}
+			.body__total {
+				@extend .body__price;
+			}
+			.body__quantity {
+				@include flex-box(center, center);
+				@include box(4rem);
+				border: 1px solid $border-color;
+				margin: 0 auto;
+			}
+
+			.body__link {
+				color: $text-color;
+				font-size: 2rem;
+			}
+		}
+	}
+	&__btnGroup {
+		@include flex-box(center, flex-end);
+		button {
+			margin-left: 1rem;
+
+			&:hover {
+				background: $primary-color;
+			}
+		}
+	}
+}
