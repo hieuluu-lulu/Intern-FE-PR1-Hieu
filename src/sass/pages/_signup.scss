@@ -34,28 +34,6 @@
 		&-form {
 			width: 100%;
 			@include font('Open Sans', 1.2, null, null, 600);
-
-			.form__label {
-				width: 100%;
-				margin-bottom: 5px;
-			}
-
-			.form__input {
-				width: 100%;
-				padding: 0.6rem 1.4rem;
-				border: 1px solid $border-color;
-				outline: none;
-			}
-			.form__checkbox {
-				margin-bottom: 5px;
-				margin-right: 5px;
-			}
-
-			.form__forgot {
-				color: $text-color;
-				text-transform: capitalize;
-				margin-right: 2.5rem;
-			}
 		}
 		&-btn {
 			border-radius: unset;

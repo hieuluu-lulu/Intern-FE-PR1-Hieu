@@ -1,0 +1,18 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./about-us.html",name: "Về chúng tôi"} ])
+    section.about 
+        .container
+            h1.about__heading Về chúng tôi
+            .row 
+                .col-lg-6.d-lg-block.d-none
+                    img.about__img(src="../assets/images/1_About-Us.jpg" alt="about-us")
+                .col-lg-6.col-md-12.col-sm-12 
+                    img.about__logo(src="../assets/images/logo.png", alt="logo")
+                    h2.about__title= homeAboutus.title
+                    p.about__content= homeAboutus.text 
+                    span.about__expand Xem thêm
