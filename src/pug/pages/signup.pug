@@ -1,0 +1,27 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./singup.html",name: "Đăng ký"} ])
+        section.signup 
+            .signup__heading
+                h1.signup__heading-title Đăng ký    
+            .signup__body 
+                form(action="#" method="post")
+                    h1.signup__body-title Thông tin cá nhân
+                    .col-lg-12.col-md-12.col-sm-12
+                        .signup__body-form
+                            each item in InputSignUp
+                                +formInput(item.type, item.text,item.id)          
+                            .mb-3.mt-5.d-flex.align-items-center
+                                input(type="checkbox" id="checkbox" class="form__checkbox")
+                                label(for="text" class="form__label") Đăng ký nhận bản tin
+                    h1.signup__body-title Thông tin đăng nhập
+                    .col-lg-12.col-md-12.col-sm-12
+                        .signup__body-form
+                            +formInput("password","Mật khẩu", "password")
+                            +formInput("password","Xác nhận mật khẩu", "confirm-password")     
+                    button(type="submit").btn.signup__body-btn Gửi      
+                                

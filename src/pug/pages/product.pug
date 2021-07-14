@@ -1,0 +1,81 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./product.html",name: "Sản phẩm"},{link: "#",name: "Trang sức"} ])
+    section.product-banner
+        .container
+            .row.align-items-center
+                .col-md-8
+                    .product-banner__discount
+                        h1.product-banner__discount-percent Giảm giá 50%
+                        .product-banner__discount-time
+                            h2 Trong vòng 3 ngày 
+                            h2 ( 25/5 - 28/05/2015 )
+                .col-md-4
+                    .product-banner__image
+    section.product
+        .container 
+            .row 
+                .col-lg-3.d-lg-block.d-md-block.d-sm-none
+                    nav.product__category
+                        .product__category-head 
+                            i.fas.fa-bars.head__icon
+                            h3.head__title Danh mục sản phẩm
+                        ul.product__category-list
+                            each item in category 
+                                if item == "Trang sức"
+                                    li.list__item   
+                                        a.list__item-link(data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample")= item
+                                            i.fas.fa-caret-right.link__icon
+                                        ul.list__item-child.collapse#collapseExample 
+                                            each child in categoryChild 
+                                                li.child__item
+                                                    a.child__item-link= child
+                                else 
+                                    li.list__item   
+                                        a.list__item-link= item
+                                            i.fas.fa-caret-right.link__icon
+                        h3.product__category-heading So sánh sản phẩm 
+                        p.product__category-desc Bạn chưa có sản phẩm nào để so sánh 
+                        h3.product__category-heading Tag sản phẩm 
+                        +tag(["Hoa tai","Son","Nước hoa","Giày","Sandal","Áo sơ mi","Nước hoa","Trẻ em","Thời trang nữ"])
+                        .product__category-image.d-lg-block.d-none 
+                            img(src="../assets/images/1_Gird.jpg")
+                            span Mandala store   
+                .col-lg-9.col-md-12.col-sm-12
+                    .product__filter
+                        .product__filter-icon 
+                            label(for="list")
+                                i.fas.fa-th-large
+                            label(for="list")
+                                i.fas.fa-list
+                        .product__filter-pagination
+                            i.fas.fa-caret-left 
+                            - var n = 1
+                            while n < 4
+                                span= n++
+                            i.fas.fa-caret-right 
+
+                    input(type="checkbox" id="list" hidden)
+                    .product__grid.row
+                        each item in product 
+                            +productCart(item.img,item.category,item.name,item.price,item.oldprice)
+                    .product__list 
+                        each item,index in productList 
+                            +productList(item.image,index, item.title,item.rating, item.desc,item.price)
+                    .product__filter
+                        .product__filter-icon 
+                            label(for="list")
+                                i.fas.fa-th-large
+                            label(for="list")
+                                i.fas.fa-list
+                        .product__filter-pagination
+                            i.fas.fa-caret-left 
+                            - var n = 1
+                            while n < 4
+                                span= n++
+                            i.fas.fa-caret-right 
+
