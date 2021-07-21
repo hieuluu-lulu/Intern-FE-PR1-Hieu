@@ -1,0 +1,91 @@
+/** @format */
+.product {
+	position: relative;
+	&__icon--left {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 40%;
+		right: 0;
+		left: 210px;
+	}
+	&__icon--right {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 40%;
+		right: 0;
+		right: 210px;
+	}
+	&__card {
+		min-height: 415px;
+		border: none;
+		cursor: pointer;
+
+		&--disable {
+			opacity: 0.5;
+
+			// @include tablet {
+			// 	display: none;
+			// }
+			// @include mobile {
+			// 	display: none;
+			// }
+		}
+		&-img {
+			border-bottom: 1px dashed $border-color;
+			cursor: default;
+		}
+
+		&-body {
+			text-align: center;
+			padding: 1rem 0;
+			overflow: hidden;
+
+			.body__cate {
+				color: $text-product-light;
+				@include font(null, 1.2, null, null, 600);
+				text-transform: uppercase;
+			}
+			& > a {
+				color: $text-color;
+			}
+			.body__title {
+				font-size: 1.4rem;
+				font-weight: bold;
+			}
+
+			.body__line {
+				width: 30%;
+				border-top: 1px solid $text-light-color;
+				margin: 1.5rem auto;
+			}
+
+			.body__price {
+				@include font('Lobster', 1.4, null, null, bold);
+				color: $primary-color;
+			}
+			.body__oldprice {
+				@include font('Lobster', 1.2, null, null, bold);
+				color: $text-product-light;
+				margin-left: 0.5rem;
+			}
+
+			&:hover > .product__card-footer {
+				transform: translateY(0);
+				z-index: 1;
+			}
+		}
+		&-footer {
+			transform: translateY(100%);
+			@include flex-box(center, center);
+			padding-top: 2rem;
+			z-index: -1;
+			position: relative;
+			@include transition;
+			@include mobile {
+				justify-content: center;
+			}
+		}
+	}
+}

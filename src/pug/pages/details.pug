@@ -1,0 +1,44 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content 
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/", name: "Home"}, {link: "./details.html", name: "Đăng nhập"}, {link:"./product.html", name:"Trang sức"}, {link:"", name:"Lắc tay"} ])
+        section.overview 
+            .row 
+                .col-2.col-lg-1.text-center.d-flex.align-items-center
+                            .overview__listImg
+                                img(src="../assets/images/Detail-up.png" alt="up")
+                                each item in detailsListImg
+                                    img.overview__listImg-image(src= item.src alt= item.alt)
+                                img(src="../assets/images/Detail-down.png" alt="down")
+                .col-lg-6.col-10
+                    .overview__mainImg
+                        img.overview__mainImg-image(src= "../assets/images/1_Detail.png" alt="Detail1")
+                .col-lg-5.col-md-12.col-sm-12
+                    +detailProduct
+        section.infor 
+            .container
+                .row 
+                    .col-lg-8.col-md-12.col-sm-12
+                        .infor__tab 
+                            h2.infor__tab-title.active  Đặc điểm nỗi bật
+                            h2.infor__tab-title  Thông tin sản phẩm 
+                            h2.infor__tab-title  Đánh giá   
+                        .infor__character
+                            each item,index in detailCharacter
+                                if index == 1 | index == detailCharacter.length-1
+                                    +detailCharacter(item.title, item.desc, item.image,index)(class="revert ")(line="line-revert")
+                                else 
+                                    +detailCharacter(item.title, item.desc, item.image,index)
+                    .col-lg-4.d-lg-block.d-none
+                        .infor__tab 
+                            h2.infor__tab-title.infor__tab-title--bestSell Sản phẩm bán chạy 
+                        each value in detailBestSell
+                            +detailBestSell(value.title,value.icon,value.rating,value.price,value.image)
+                        .infor__tab.mt-4
+                            h2.infor__tab-title.infor__tab-title--bestSell Sản phẩm mua nhiều 
+                        
+                        each value in detailBestSell
+                            +detailBestSell(value.title,value.icon,value.rating,value.price,value.image)

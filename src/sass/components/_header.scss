@@ -1,33 +1,111 @@
 /** @format */
-@import '../base/mixins';
-@import '../base/variables';
-@import '../base/global';
+
 .header {
 	border-bottom: 1px solid $border-color;
+	background-color: transparent;
+	z-index: 9999;
+	position: relative;
 	&__nav {
 		@include flex-box(center, space-between);
 		min-height: 78px;
 		width: 100%;
 		overflow: hidden;
 		padding: 0;
+
+		@include mobile {
+			flex-wrap: wrap;
+			position: relative;
+			padding: 1.2rem;
+		}
+
+		@include tablet {
+			flex-wrap: wrap;
+			position: relative;
+			padding: 1.2rem;
+		}
+
 		&-list {
+			overflow: hidden;
+			@include mobile {
+				flex-direction: column;
+				width: 100%;
+				@include transition;
+				@include setSize;
+				@include transition;
+			}
+
+			@include tablet {
+				flex-direction: column;
+				width: 100%;
+				@include setSize;
+				@include transition;
+			}
+
 			.list__item {
 				display: inline-block;
-				@include font(OpenSans, 1.2, 16px, null, bold);
-				padding: 0 2rem;
+				@include font('Open Sans', 1.3, 1.6, null, 600);
+				padding: 3rem 2rem;
 				text-transform: uppercase;
+				cursor: pointer;
+
+				@include mobile {
+					width: 100%;
+					text-align: center;
+					border-bottom: 1px solid $border-color;
+					padding: 1.4rem 2rem;
+					&:hover {
+						background: $header-color;
+						a {
+							color: $primary-color;
+						}
+					}
+				}
+
+				@include tablet {
+					width: 100%;
+					text-align: center;
+					border-bottom: 1px solid $border-color;
+					&:hover {
+						background: $header-color;
+						a {
+							color: $primary-color;
+						}
+					}
+				}
+
+				&:hover > .mega-menu {
+					height: 300px;
+					visibility: visible;
+					opacity: 1;
+
+					@include tablet {
+						visibility: hidden;
+					}
+					@include mobile {
+						visibility: hidden;
+					}
+				}
+
 				&--hasChild::after {
 					content: '';
-					border-left: 24px solid;
-					border-right: 24px solid;
-					border-bottom: 12px solid;
+					border-left: 23px solid;
+					border-right: 23px solid;
+					border-bottom: 8px solid;
 					position: absolute;
-					top: 66px;
+					top: 70px;
 					left: 50%;
 					border-color: transparent transparent $primary-color
 						transparent;
 					@include transition;
 					opacity: 0;
+
+					@include mobile {
+						display: none;
+					}
+
+					@include tablet {
+						display: none;
+					}
 				}
 
 				&--hasChild:hover::after {
@@ -37,48 +115,171 @@
 				&-link {
 					color: $text-color;
 					margin-right: 5px;
-
 					&:hover {
 						color: $primary-color;
-					}
-					&:hover ~ .mega-menu {
-						height: 300px;
-
-						opacity: 1;
 					}
 				}
 			}
 		}
-		&-cart {
-			cursor: pointer;
-			.cart__wrap {
-				display: none;
-			}
-		}
 
-		&-search {
-			margin-left: -80px;
+		&-right {
+			@include flex-box(center, space-between);
+			width: 10%;
+
+			@include tablet {
+				position: absolute;
+				top: 2.5rem;
+				right: 1.5rem;
+				width: 25%;
+			}
+
+			@include mobile {
+				position: absolute;
+				top: 2.5rem;
+				right: 1.5rem;
+				width: 25%;
+			}
+
+			.right__cart {
+				cursor: pointer;
+				&:hover > .right__cart-wrap {
+					visibility: visible;
+					opacity: 1;
+					height: 300px;
+
+					@include tablet {
+						visibility: hidden;
+					}
+					@include mobile {
+						visibility: hidden;
+					}
+				}
+
+				&-wrap {
+					min-width: 200px;
+					height: 0;
+					position: absolute;
+					top: 78px;
+					right: 8%;
+					border: 2px solid $primary-color;
+					padding: 10px;
+					opacity: 0;
+					visibility: hidden;
+					background-color: $body-color;
+					@include transition;
+
+					@include tablet {
+						visibility: hidden;
+					}
+
+					@include mobile {
+						visibility: hidden;
+					}
+
+					&::before {
+						content: '';
+						border-top: 30px solid;
+						border-left: 23px solid;
+						border-right: 23px solid;
+						border-bottom: 8px solid;
+						position: absolute;
+						top: -40px;
+						left: 38%;
+						border-color: transparent transparent $primary-color
+							transparent;
+					}
+					.wrap__items {
+						@include flex-box(center, space-between);
+						padding-bottom: 1.8rem;
+
+						&-image {
+							@include box(7rem);
+							overflow: hidden;
+						}
+
+						&-details {
+							@include font('Open Sans', 1.4, 24px, null, 600);
+							margin-left: 10px;
+							.details__title {
+								@include font(
+									'Open Sans',
+									1.4,
+									null,
+									null,
+									400
+								);
+							}
+							.details__price {
+								@include font(Lobster, 1.4, null, null, 600);
+								color: $primary-color;
+							}
+						}
+					}
+
+					.wrap__footer {
+						padding-top: 1.8rem;
+						border-top: 1px solid $border-color;
+
+						&-total {
+							@include flex-box(center, space-between);
+							@include font('Open Sans', 1.4, 24px, null, 600);
+
+							p:nth-child(2) {
+								@include font(Lobster, 1.4, 24px, null, 600);
+								color: $primary-color;
+								margin-right: 10px;
+							}
+						}
+
+						&-btn {
+							background: $btn-color;
+							padding: 5px;
+							margin-top: 1.8rem;
+							border-radius: unset;
+						}
+					}
+				}
+			}
+
+			.right__bars {
+				font-size: 1.8rem;
+				display: none;
+				@include box(3rem);
+				color: $body-color;
+				background: $btn-color;
+				cursor: pointer;
+
+				@include mobile {
+					@include flex-box(center, center);
+				}
+				@include tablet {
+					@include flex-box(center, center);
+				}
+			}
 		}
 	}
 
 	.mega-menu {
 		position: absolute;
 		overflow: hidden;
+		background-color: $body-color;
 		top: 7.8rem;
 		height: 0;
 		margin-left: 20px;
 		@include flex-box(center, space-between);
 		min-width: 700px;
-		left: 30%;
+		left: 28%;
 		border: 2px solid $primary-color;
 		padding: 3.5rem 4rem;
+		visibility: hidden;
 		opacity: 0;
+		z-index: 1;
 		@include transition;
 
 		&__col {
 			width: calc(100% / 3 - 100px / 3);
 			&-heading {
-				@include font(OpenSans, 1.6, null, null, bold);
+				@include font('Open Sans', 1.6, null, null, bold);
 				text-transform: uppercase;
 				padding-bottom: 1.5rem;
 				border-bottom: 1px solid $border-color;
@@ -88,16 +289,39 @@
 			&-wrap {
 				font-size: 1.3rem;
 				text-transform: capitalize;
-				.wrap__item a {
-					color: $text-light-color;
-					font-weight: 500;
-					line-height: 1.6;
+
+				.wrap__item {
+					@include transition;
+					&::before {
+						@include before-list-item;
+					}
+
 					&:hover {
-						color: $primary-color;
-						transform: translateY(2px);
+						transform: translateX(10px);
+					}
+
+					a {
+						color: $text-light-color;
+						font-weight: 500;
+						line-height: 1.6;
+
+						&:hover {
+							color: $primary-color;
+						}
 					}
 				}
 			}
 		}
+	}
+}
+@include mobile {
+	#menu:checked + .header__nav-list {
+		height: 445px;
+	}
+}
+
+@include tablet {
+	#menu:checked + .header__nav-list {
+		height: 545px;
 	}
 }
