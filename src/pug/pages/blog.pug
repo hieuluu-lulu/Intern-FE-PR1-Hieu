@@ -1,0 +1,34 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content 
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./blog.html",name: "Blog"} ])
+    section.blog 
+        .container 
+            h1.blog__heading Blog
+            .blog__filter
+                .blog__filter-icon 
+                    i.fas.fa-th-large
+                    i.fas.fa-list
+                .blog__filter-pagination
+                    i.fas.fa-caret-left 
+                    - var n = 1
+                    while n < 4
+                        span= n++
+                    i.fas.fa-caret-right 
+            .row
+                each item,index in blogCard
+                    .col-lg-4.col-md-6.col-sm-12 
+                        +blogCard(item.img,item.title,item.content,item.author,item.comment,index)
+            .blog__filter
+                .blog__filter-icon 
+                    i.fas.fa-th-large
+                    i.fas.fa-list
+                .blog__filter-pagination
+                    i.fas.fa-caret-left 
+                    - var n = 1
+                    while n < 4
+                        span= n++
+                    i.fas.fa-caret-right 

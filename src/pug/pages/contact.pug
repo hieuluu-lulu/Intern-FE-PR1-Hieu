@@ -1,0 +1,24 @@
+extend ../layouts/layout.pug
+include ../base/mixin.pug
+block content
+    .container
+        .row 
+            .breadcrumbs
+                +breadcrumbs([{link: "/",name: "Home"}, {link: "./contact.html",name: "Liên hệ"} ])
+    section.contact
+        .container 
+            h1.contact__heading Liên hệ
+            .row 
+                .col-lg-6.col-md-6.col-sm-12
+                    img.contact__img(src="../assets/images/1_Contact-us.jpg" alt="map")
+                .col-lg-6.col-md-6.col-sm-12
+                    h2.contact__title Gửi email cho chúng tôi
+                    form.contact__form 
+                        +formContact(text,"Tên",name)
+                        +formContact(email,"Email",email)
+                        .row.mb-4
+                            .col-2
+                                label(for= "message").col-form-label.form__label Tin nhắn*
+                            .col-10
+                                textarea(id= "message" rows="10").form__input
+                        button(type="submit").btn.form__btn.contact__form-btn Gửi

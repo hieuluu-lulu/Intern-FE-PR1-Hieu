@@ -94,6 +94,7 @@
 					position: absolute;
 					top: 70px;
 					left: 50%;
+					transform: translate(-50%);
 					border-color: transparent transparent $primary-color
 						transparent;
 					@include transition;

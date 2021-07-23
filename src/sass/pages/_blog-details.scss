@@ -1,0 +1,219 @@
+/** @format */
+
+.blog-detail {
+	padding: 3rem 0;
+	&__heading {
+		@include font('Open Sans', 2.8);
+		text-transform: uppercase;
+		margin-bottom: 3rem;
+
+		@include tablet {
+			padding-left: 2rem;
+		}
+		@include mobile {
+			padding-left: 2rem;
+		}
+	}
+	&__cate {
+		width: 100%;
+
+		&-head {
+			@include font('Open Sans', 1.8);
+			padding-bottom: 1rem;
+			border-bottom: 1px solid $border-color;
+			margin-bottom: 2.5rem;
+			text-transform: uppercase;
+
+			&--bold {
+				font-weight: 600;
+			}
+		}
+		&-post {
+			margin-bottom: 3rem;
+
+			.post__img {
+				width: 100%;
+				position: relative;
+				overflow: hidden;
+				height: 5rem;
+				cursor: pointer;
+
+				img {
+					-o-object-fit: cover;
+					object-fit: cover;
+					width: calc(100% - 1px);
+					height: 100%;
+				}
+				&-block--1 {
+					position: absolute;
+					width: 50%;
+					height: 0.8rem;
+					bottom: 0;
+					left: 0;
+					background: $body-color;
+					-webkit-clip-path: polygon(
+						0 20%,
+						80% 20%,
+						100% 100%,
+						0% 100%
+					);
+					clip-path: polygon(0 20%, 80% 20%, 100% 100%, 0% 100%);
+				}
+				&-block--2 {
+					position: absolute;
+					width: 50%;
+					height: 0.8rem;
+					bottom: 0;
+					right: 0;
+					background: $body-color;
+					-webkit-clip-path: polygon(
+						20% 20%,
+						100% 20%,
+						100% 100%,
+						0% 100%
+					);
+					clip-path: polygon(20% 20%, 100% 20%, 100% 100%, 0% 100%);
+				}
+			}
+			.post__wrap {
+				cursor: pointer;
+				color: $text-color;
+				width: 100%;
+				&-day {
+					font-size: 2rem;
+					font-weight: 600;
+					position: relative;
+					top: -1rem;
+				}
+				&-month {
+					@extend .post__wrap-day;
+					font-size: 1.4rem;
+					text-transform: capitalize;
+				}
+				&-author {
+					display: block;
+					font-size: 1.4rem;
+					color: $text-light-color;
+					font-style: italic;
+					margin-top: -1rem;
+				}
+			}
+		}
+
+		&-video {
+			margin-top: 5rem;
+			.video__image {
+				margin-top: -1.5rem;
+				position: relative;
+
+				img {
+					width: 100%;
+					-o-object-fit: cover;
+					object-fit: cover;
+				}
+			}
+
+			.video__icon {
+				position: absolute;
+				@include box(5rem);
+				left: 50%;
+				top: 50%;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.5);
+				transform: translate(-50%, -50%);
+				cursor: pointer;
+
+				& > i {
+					font-size: 3rem;
+					color: $body-color;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+
+	&__content {
+		width: 100%;
+		padding-top: 3rem;
+
+		&-image {
+			width: 100%;
+			margin-bottom: 3rem;
+			img {
+				width: 100%;
+				-o-object-fit: fill;
+				object-fit: fill;
+			}
+		}
+
+		&-title {
+			@include font('Open Sans', 2.8, null, null, 600);
+			text-transform: uppercase;
+			padding-bottom: 2rem;
+			border-bottom: 1px solid $border-color;
+			margin-bottom: 2rem;
+		}
+
+		&-text {
+			@include font('Open Sans', 1.5, 28px);
+			color: $text-light-color;
+		}
+		&-author {
+			display: block;
+			padding: 1.5rem 0;
+			color: $text-light-color;
+			font-style: italic;
+			font-size: 1.3rem;
+			border-bottom: 1px solid $border-color;
+			margin-bottom: 1.5rem;
+		}
+
+		&-footer {
+			@include flex-box(center, space-between);
+			span {
+				color: $text-light-color;
+				font-size: 1.3rem;
+				cursor: pointer;
+
+				& > i {
+					font-size: 1.2rem;
+					margin-left: 0.5rem;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+	&__tag {
+		display: block;
+		font-size: 1.8rem;
+		color: $text-light-color;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid $border-color;
+		margin: 3rem 0;
+		& > span {
+			font-size: 1.4rem;
+			color: $text-color;
+		}
+	}
+	&__opinion {
+		&-head {
+			@include font('Open Sans', 1.8);
+			text-transform: uppercase;
+		}
+		&-form {
+			@include font('Open Sans', 1.5);
+
+			span {
+				color: $primary-color;
+				margin-left: 0.5rem;
+			}
+			& > button {
+				font-size: 1.6rem;
+				margin-left: calc(100% - 83.33333333% + 2px);
+			}
+		}
+	}
+}
